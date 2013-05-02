@@ -3,5 +3,5 @@ set cindent
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-nmap <C-]> :tabnext<CR>
-nmap <C-[> :tabprevious<CR>
+map <C-l> :tabnext<CR>
+map <C-h> :tabprevious<CR>
