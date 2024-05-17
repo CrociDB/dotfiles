@@ -12,7 +12,8 @@ local plugins = {
       ensure_installed = {
         "clangd",
         "clang-format",
-        "pyright"
+        "pyright",
+        "typescript-language-server"
       }
     }
   }
