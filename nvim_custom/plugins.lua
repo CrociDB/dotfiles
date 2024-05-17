@@ -1,5 +1,12 @@
 local plugins = {
   {
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
+    config = function ()
+      require "custom.configs.lint"
+    end
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function ()
       require "plugins.configs.lspconfig"
@@ -13,7 +20,8 @@ local plugins = {
         "clangd",
         "clang-format",
         "pyright",
-        "typescript-language-server"
+        "typescript-language-server",
+        "eslint-lsp",
       }
     }
   }
