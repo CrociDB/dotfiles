@@ -7,6 +7,10 @@ map("n", "<leader>ss", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Te
 map("n", "<leader>m", "<cmd> Telescope lsp_document_symbols ignore_symbols=variable <CR>", { desc = "Telescope Document Symbols" })
 map("n", "<leader>fm", "<cmd> FormatLock <CR>", { desc = "Format file with Formatter" })
 map("n", "<leader>fmm", "<cmd> FormatWriteLock <CR>", { desc = "Format file with Formatter and Save" })
+map("n", "{", "g;")
+map("n", "}", "g,")
+map("n", "(", "[m")
+map("n", ")", "]m")
 
 -- NVChad options
 M.ui = { theme = 'vscode_dark' }
