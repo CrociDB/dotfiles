@@ -28,3 +28,10 @@ lspconfig.tsserver.setup({
     }
   }
 })
+
+lspconfig.hls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "haskell", "lhaskell", "cabal" },
+})
+
