@@ -12,8 +12,12 @@ map("n", "}", "<C-I>")
 map("n", "(", "[m")
 map("n", ")", "]m")
 
+map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
+
+vim.opt.relativenumber = true
+
 -- NVChad options
-M.ui = { theme = 'vscode_dark' }
+M.ui = { theme = 'catppuccin' }
 M.plugins = "custom.plugins"
 
 return M
