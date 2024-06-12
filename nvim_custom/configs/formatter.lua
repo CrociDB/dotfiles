@@ -6,8 +6,14 @@ local M = {
     typescript = {
       require("formatter.filetypes.typescript").prettier
     },
+    css = {
+      require("formatter.filetypes.css").prettier
+    },
+    html = {
+      require("formatter.filetypes.html").prettier
+    },
     haskell = {
-      require("formatter.filetypes.haskell").stylish_haskell
+      require("formatter.filetypes.haskell").fourmolu
     },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whites
