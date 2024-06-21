@@ -14,6 +14,10 @@ map("n", ")", "]m")
 
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 
+map("n", "<M-p>", "<cmd> CopilotChatToggle <CR>")
+map("v", "<M-p>", "<cmd> CopilotChatToggle <CR>")
+map("v", "<leader>ee", "<cmd> CopilotChatExplain <CR>")
+
 vim.opt.relativenumber = true
 
 -- NVChad options

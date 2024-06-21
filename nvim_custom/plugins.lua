@@ -21,6 +21,26 @@ local plugins = {
     end,
   },
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require "custom.configs.copilot"
+    end,
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    lazy = false,
+    branch = "canary",
+    dependencies = {
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    opts = function ()
+      return require "custom.configs.copilotchat"
+    end
+    -- See Commands section for default commands if you want to lazy load on them
+  },
+  {
     "folke/trouble.nvim",
     opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = "Trouble",
