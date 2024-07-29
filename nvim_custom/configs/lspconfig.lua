@@ -35,3 +35,9 @@ lspconfig.hls.setup({
   filetypes = { "haskell", "lhaskell", "cabal" },
 })
 
+lspconfig.zls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "zig" },
+})
+

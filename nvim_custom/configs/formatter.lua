@@ -15,6 +15,9 @@ local M = {
     haskell = {
       require("formatter.filetypes.haskell").fourmolu
     },
+    zig = {
+      require("formatter.filetypes.zig").zigfmt
+    },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whites
     }
