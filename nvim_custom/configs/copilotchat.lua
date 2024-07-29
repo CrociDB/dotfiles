@@ -80,7 +80,7 @@ local M = {
     border = 'single', -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
     row = nil, -- row position of the window, default is centered
     col = nil, -- column position of the window, default is centered
-    title = 'Copilot Chat', -- title of chat window
+    title = '', -- title of chat window
     footer = nil, -- footer of chat window
     zindex = 1, -- determines if window is on top or below other floating windows
   },
