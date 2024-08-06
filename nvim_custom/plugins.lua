@@ -14,6 +14,16 @@ local plugins = {
     end,
   },
   {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "mfussenegger/nvim-dap-ui"
+    },
+    event = "VeryLazy",
+    config = function ()
+      require "custom.configs.dap"
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function ()
       require "plugins.configs.lspconfig"
