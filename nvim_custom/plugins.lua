@@ -16,7 +16,8 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      "mfussenegger/nvim-dap-ui"
+      "nvim-neotest/nvim-nio",
+      "rcarriga/nvim-dap-ui"
     },
     event = "VeryLazy",
     config = function ()
