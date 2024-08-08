@@ -1,5 +1,8 @@
 local dap, dapui = require("dap"), require("dapui")
 
+vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
+vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
+
 dapui.setup()
 
 dap.listeners.before.attach.dapui_config = function()
@@ -18,18 +21,23 @@ end
 -- KEYMAPS
 vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
 vim.keymap.set("n", "<Leader>dc", dap.continue, {})
+vim.keymap.set('n', '<F5>', dap.continue)
+vim.keymap.set('n', '<F10>', dap.step_over)
+vim.keymap.set('n', '<F11>', dap.step_into)
+vim.keymap.set('n', '<F12>', dap.step_out)
+vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
 
 -- ADAPTERS
 dap.adapters.lldb = {
   type = "executable",
-  command = "lldb-vscode",
+  command = "/usr/bin/lldb-dap",
   name = "lldb"
 }
 
 dap.adapters.gdb = {
   type = "executable",
   command = "gdb",
-  name = "gdb"
+  args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
 }
 
 -- CONFIGURATIONS
@@ -43,6 +51,17 @@ dap.configurations.zig = {
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
     args = {},
+    runInTerminal = false,
+    env = function()
+      local variables = {}
+      for k, v in pairs(vim.fn.environ()) do
+        table.insert(variables, string.format("%s=%s", k, v))
+      end
+      return variables
+    end,
   },
 }
+
+dap.configurations.c = dap.configurations.zig
+dap.configurations.cpp = dap.configurations.zig
 
