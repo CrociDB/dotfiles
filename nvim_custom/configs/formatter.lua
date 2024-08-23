@@ -6,6 +6,9 @@ local M = {
     typescript = {
       require("formatter.filetypes.typescript").prettier
     },
+    json = {
+      require("formatter.filetypes.json").prettier
+    },
     css = {
       require("formatter.filetypes.css").prettier
     },
