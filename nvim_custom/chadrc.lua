@@ -13,6 +13,9 @@ map("n", "}", "<C-I>")
 map("n", "(", "[m")
 map("n", ")", "]m")
 
+map('v', '<A-S-k>', ':m \'<-2<CR>gv=gv', {noremap = true, silent = true})
+map('v', '<A-S-j>', ':m \'>+1<CR>gv=gv', {noremap = true, silent = true})
+
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 
 map("n", "<M-p>", "<cmd> CopilotChatToggle <CR>")
