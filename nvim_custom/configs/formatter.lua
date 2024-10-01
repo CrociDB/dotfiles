@@ -3,6 +3,9 @@ local M = {
     javascript = {
       require("formatter.filetypes.javascript").prettier
     },
+    lua = {
+      require("formatter.filetypes.lua").luaformatter
+    },
     typescript = {
       require("formatter.filetypes.typescript").prettier
     },

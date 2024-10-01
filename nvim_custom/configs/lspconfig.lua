@@ -41,3 +41,17 @@ lspconfig.zls.setup({
   filetypes = { "zig" },
 })
 
+lspconfig.gdscript.setup({
+  on_attach = function()
+    on_attach()
+
+    vim.cmd("set noexpandtab")
+    vim.cmd("set tabstop=4")
+    vim.cmd("set shiftwidth=4")
+
+    local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
+    if not vim.loop.fs_stat(pipepath) then
+      vim.fn.serverstart(pipepath)
+    end
+  end
+})

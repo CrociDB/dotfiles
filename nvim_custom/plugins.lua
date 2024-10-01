@@ -124,7 +124,8 @@ local plugins = {
         "eslint-lsp",
         "prettier",
         "haskell-language-server",
-        "zls"
+        "zls",
+        "luaformatter",
       }
     }
   }
