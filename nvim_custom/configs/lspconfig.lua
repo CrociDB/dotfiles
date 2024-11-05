@@ -4,6 +4,7 @@ local on_attach = base.on_attach
 local capabilities = base.capabilities
 
 local lspconfig = require("lspconfig")
+vim.lsp.set_log_level("debug")
 
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
@@ -55,3 +56,6 @@ lspconfig.gdscript.setup({
     end
   end
 })
+
+lspconfig.ocamllsp.setup({})
+

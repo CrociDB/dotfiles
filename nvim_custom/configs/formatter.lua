@@ -24,6 +24,9 @@ local M = {
     zig = {
       require("formatter.filetypes.zig").zigfmt
     },
+    ocaml = {
+      require("formatter.filetypes.ocaml").ocamlformat
+    },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whites
     }
