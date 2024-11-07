@@ -29,7 +29,7 @@ vim.cmd [[
 vim.opt.relativenumber = true
 
 -- NVChad options
-M.ui = { theme = 'github_dark' }
+M.ui = { theme = 'kanagawa' }
 M.plugins = "custom.plugins"
 
 return M
