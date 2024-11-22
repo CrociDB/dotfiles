@@ -1,8 +1,16 @@
 local options = {
 	formatters_by_ft = {
 		lua = { "stylua" },
-		-- css = { "prettier" },
-		-- html = { "prettier" },
+		css = { "prettier" },
+		html = { "prettier" },
+		javascript = { "prettier" },
+		json = { "prettier" },
+		haskell = { "fourmolu" },
+		zig = { "zigfmt" },
+		ocaml = { "ocamlformat" },
+		c = { "clang-format" },
+		cpp = { "clang-format" },
+		gdscript = { "gdformat" },
 	},
 
 	-- format_on_save = {
