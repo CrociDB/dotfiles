@@ -1,28 +1,28 @@
-local base = require("plugins.configs.lspconfig")
-
-local on_attach = base.on_attach
-local capabilities = base.capabilities
+-- load defaults i.e lua_lsp
+require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require("lspconfig")
+local nvlsp = require "nvchad.configs.lspconfig"
+
 vim.lsp.set_log_level("debug")
 
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
+    nvlsp.on_attach(client, bufnr)
   end,
-  capabilities = capabilities,
+  capabilities = nvlsp.capabilities,
 }
 
 lspconfig.pyright.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
   filetypes = {"python"},
 })
 
 lspconfig.ts_ls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
   init_options = {
     preferences = {
       disableSuggestions = true,
@@ -31,20 +31,20 @@ lspconfig.ts_ls.setup({
 })
 
 lspconfig.hls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
   filetypes = { "haskell", "lhaskell", "cabal" },
 })
 
 lspconfig.zls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
   filetypes = { "zig" },
 })
 
 lspconfig.gdscript.setup({
   on_attach = function()
-    on_attach()
+    nvlsp.on_attach()
 
     vim.cmd("set noexpandtab")
     vim.cmd("set tabstop=4")

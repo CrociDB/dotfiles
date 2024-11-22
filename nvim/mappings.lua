@@ -1,8 +1,10 @@
----@type ChadrcConfig
-local M = {}
+require "nvchad.mappings"
 
--- Keymaps
 local map = vim.keymap.set
+
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+
 map("n", "<leader>tt", "<cmd> Telescope<CR>", { desc = "Telescope Document Symbols" })
 map("n", "<leader>ss", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Telescope Document Symbols" })
 map("n", "<leader>m", "<cmd> Telescope lsp_document_symbols ignore_symbols=variable <CR>", { desc = "Telescope Document Symbols" })
@@ -22,14 +24,4 @@ map("n", "<M-p>", "<cmd> CopilotChatToggle <CR>")
 map("v", "<M-p>", "<cmd> CopilotChatToggle <CR>")
 map("v", "<leader>ee", "<cmd> CopilotChatExplain <CR>")
 
-vim.cmd [[
-  au BufRead,BufNewFile *.mpp set filetype=cpp
-]]
-
-vim.opt.relativenumber = true
-
--- NVChad options
-M.ui = { theme = 'kanagawa' }
-M.plugins = "custom.plugins"
-
-return M
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

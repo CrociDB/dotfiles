@@ -1,16 +1,21 @@
 local plugins = {
   {
+    "stevearc/conform.nvim",
+    -- event = 'BufWritePre', -- uncomment for format on save
+    opts = require "configs.conform",
+  },
+  {
     "mhartington/formatter.nvim",
     event = "VeryLazy",
     opts = function ()
-      return require "custom.configs.formatter"
+      return require "configs.formatter"
     end,
   },
   {
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
     config = function ()
-      require "custom.configs.lint"
+      require "configs.lint"
     end,
   },
   {
@@ -21,21 +26,20 @@ local plugins = {
     },
     event = "VeryLazy",
     config = function ()
-      require "custom.configs.dap"
+      require "configs.dap"
     end,
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
     event = "VeryLazy",
     config = function ()
-      require "custom.configs.telescope-ui-select"
+      require "configs.telescope-ui-select"
     end
   },
   {
     "neovim/nvim-lspconfig",
     config = function ()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require "configs.lspconfig"
     end,
   },
   {
@@ -53,7 +57,7 @@ local plugins = {
       "rcarriga/nvim-notify",
     },
     config = function ()
-      require "custom.configs.noice"
+      require "configs.noice"
     end
   },
   {
@@ -61,7 +65,7 @@ local plugins = {
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      require "custom.configs.copilot"
+      require "configs.copilot"
     end,
   },
   {
@@ -72,7 +76,7 @@ local plugins = {
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
     opts = function ()
-      return require "custom.configs.copilotchat"
+      return require "configs.copilotchat"
     end
     -- See Commands section for default commands if you want to lazy load on them
   },
@@ -112,22 +116,6 @@ local plugins = {
         desc = "Quickfix List (Trouble)",
       },
     },
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "clangd",
-        "clang-format",
-        "pyright",
-        "typescript-language-server",
-        "eslint-lsp",
-        "prettier",
-        "haskell-language-server",
-        "zls",
-        "luaformatter",
-      }
-    }
   },
   { 'wakatime/vim-wakatime', lazy = false }
 }
