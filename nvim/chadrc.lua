@@ -5,8 +5,20 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.ui = {
+	statusline = {
+		theme = "default",
+		separator_style = "round",
+		order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "line", "diagnostics", "lsp", "cwd", "cursor" },
+		modules = {
+			line = "%#StText# %l:%c ",
+		},
+	},
+}
+
 M.base46 = {
 	theme = "kanagawa",
+	transparency = true,
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
