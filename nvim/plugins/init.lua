@@ -110,6 +110,16 @@ local plugins = {
 			},
 		},
 	},
+	{
+		"dasupradyumna/launch.nvim",
+		event = "VeryLazy",
+		-- add below plugins as per user requirement
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"rcarriga/nvim-notify",
+		},
+		opts = require("configs.launch")
+	},
 	{ "wakatime/vim-wakatime", lazy = false },
 }
 
