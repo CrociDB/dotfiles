@@ -64,7 +64,7 @@ local plugins = {
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
 		lazy = false,
-		branch = "canary",
+		branch = "main",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 		},
@@ -118,7 +118,7 @@ local plugins = {
 			"mfussenegger/nvim-dap",
 			"rcarriga/nvim-notify",
 		},
-		opts = require("configs.launch")
+		opts = require("configs.launch"),
 	},
 	{ "wakatime/vim-wakatime", lazy = false },
 }
