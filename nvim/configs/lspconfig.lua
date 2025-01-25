@@ -59,3 +59,5 @@ lspconfig.gdscript.setup({
 
 lspconfig.ocamllsp.setup({})
 lspconfig.racket_langserver.setup{}
+lspconfig.html.setup{}
+lspconfig.cssls.setup{}
