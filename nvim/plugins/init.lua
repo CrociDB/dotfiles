@@ -133,6 +133,17 @@ local plugins = {
 			-- log_level = 'debug',
 		},
 	},
+	{
+		"olimorris/codecompanion.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("configs.codecompanion")
+		end,
+	},
 }
 
 return plugins

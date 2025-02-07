@@ -25,6 +25,9 @@ map('v', '<A-S-j>', ':m \'>+1<CR>gv=gv', {noremap = true, silent = true})
 
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 
+map("n", "<M-m>", "<cmd> CodeCompanionActions <CR>")
+map("v", "<M-m>", "<cmd> CodeCompanionActions <CR>")
+
 map("n", "<M-p>", "<cmd> CopilotChatToggle <CR>")
 map("v", "<M-p>", "<cmd> CopilotChatToggle <CR>")
 map("v", "<leader>ee", "<cmd> CopilotChatExplain <CR>")
