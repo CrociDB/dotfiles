@@ -1,5 +1,12 @@
 require "nvchad.mappings"
 
+-- Some auxiliary functions
+function CopilotChatActions()
+  local actions = require("CopilotChat.actions")
+  require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+end
+
+-- Maps
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
@@ -12,7 +19,7 @@ map("n", "<leader>rf", "<Cmd>lua vim.lsp.codelens.refresh()<CR>", { desc = "Refr
 map("n", "<leader>tt", "<cmd> Telescope<CR>", { desc = "Telescope Document Symbols" })
 map("n", "<leader>ss", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Telescope Document Symbols" })
 
-map("n", "<leader>m", "<cmd> Telescope lsp_document_symbols ignore_symbols=variable <CR>", { desc = "Telescope Document Symbols" })
+map("n", "<leader>m", "<cmd> Telescope lsp_document_symbols symbols=function,method <CR>", { desc = "Telescope Document Symbols" })
 map("n", "<leader>fm", "<cmd> lua require('conform').format() <CR>", { desc = "Format file with Formatter" })
 
 map("n", "{", "<C-O>")
@@ -25,8 +32,10 @@ map('v', '<A-S-j>', ':m \'>+1<CR>gv=gv', {noremap = true, silent = true})
 
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 
-map("n", "<M-m>", "<cmd> CodeCompanionActions <CR>")
-map("v", "<M-m>", "<cmd> CodeCompanionActions <CR>")
+map("n", "<M-M>", "<cmd> CodeCompanionActions <CR>")
+map("v", "<M-M>", "<cmd> CodeCompanionActions <CR>")
+map("n", "<M-m>", "<cmd>lua CopilotChatActions()<CR>")
+map("v", "<M-m>", "<cmd>lua CopilotChatActions()<CR>")
 
 map("n", "<M-p>", "<cmd> CopilotChatToggle <CR>")
 map("v", "<M-p>", "<cmd> CopilotChatToggle <CR>")
