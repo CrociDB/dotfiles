@@ -1,4 +1,4 @@
-local prompts = require('CopilotChat.prompts')
+local prompts = require('CopilotChat.config.prompts')
 local select = require('CopilotChat.select')
 
 local M = {
