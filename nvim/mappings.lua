@@ -11,7 +11,10 @@ function CopilotChatQuickPrompt()
 	if prompt ~= "" then
 		local chat = require("CopilotChat")
 		chat.ask(prompt, {
-			selection = require("CopilotChat.select").visual(), -- Get visual selection
+			selection = function(source)
+				local select = require("CopilotChat.select")
+				return select.visual(source) or select.buffer(source)
+			end,
 			context = { "buffers", "files" },
 			callback = function(response)
 				print("Response:", response)
