@@ -105,7 +105,7 @@ local M = {
 		},
 		submit_prompt = {
 			normal = "<CR>",
-			insert = "<C-s>",
+			insert = "<C-CR>",
 		},
 		toggle_sticky = {
 			detail = "Makes line under cursor sticky or deletes sticky line.",
