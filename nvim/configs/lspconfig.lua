@@ -3,6 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require("lspconfig")
 local nvlsp = require "nvchad.configs.lspconfig"
+local capabilities = require("blink.cmp").get_lsp_capabilities(nvlsp.capabilities)
 
 vim.lsp.set_log_level("debug")
 
@@ -11,18 +12,18 @@ lspconfig.clangd.setup {
     client.server_capabilities.signatureHelpProvider = false
     nvlsp.on_attach(client, bufnr)
   end,
-  capabilities = nvlsp.capabilities,
+  capabilities = capabilities,
 }
 
 lspconfig.pyright.setup({
   on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
+  capabilities = capabilities,
   filetypes = {"python"},
 })
 
 lspconfig.ts_ls.setup({
   on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
+  capabilities = capabilities,
   init_options = {
     preferences = {
       disableSuggestions = true,
@@ -32,13 +33,13 @@ lspconfig.ts_ls.setup({
 
 lspconfig.hls.setup({
   on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
+  capabilities = capabilities,
   filetypes = { "haskell", "lhaskell", "cabal" },
 })
 
 lspconfig.zls.setup({
   on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
+  capabilities = capabilities,
   filetypes = { "zig" },
 })
 
@@ -57,7 +58,19 @@ lspconfig.gdscript.setup({
   end
 })
 
-lspconfig.ocamllsp.setup({})
-lspconfig.racket_langserver.setup{}
-lspconfig.html.setup{}
-lspconfig.cssls.setup{}
+lspconfig.ocamllsp.setup({
+  capabilities = capabilities
+})
+
+lspconfig.racket_langserver.setup({
+  capabilities = capabilities
+})
+
+lspconfig.html.setup({
+  capabilities = capabilities
+})
+
+lspconfig.cssls.setup({
+  capabilities = capabilities
+})
+

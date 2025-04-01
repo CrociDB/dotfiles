@@ -17,7 +17,7 @@ M.ui = {
 }
 
 M.base46 = {
-	theme = "kanagawa",
+	theme = "chocolate",
 	-- transparency = true,
 
 	-- hl_override = {

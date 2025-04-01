@@ -6,6 +6,7 @@ vim.cmd [[
 
 vim.opt.relativenumber = true
 
+require('cmp').setup { enabled = false }
 
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
