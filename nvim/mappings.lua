@@ -26,6 +26,9 @@ end
 -- Maps
 local map = vim.keymap.set
 
+map("v", "//", [[y/\V<C-R>=escape(@", '/\')<CR><CR>]], { noremap = true, silent = true })
+map("n", "//", [[:let @/='\V' . escape(expand('<cword>'), '/\')<CR>n]], { noremap = true, silent = true })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
