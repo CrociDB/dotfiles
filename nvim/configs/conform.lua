@@ -10,6 +10,7 @@ local options = {
 		ocaml = { "ocamlformat" },
 		c = { "clang-format" },
 		cpp = { "clang-format" },
+		ino = { "clang-format" },
 		gdscript = { "gdformat" },
 	},
 
