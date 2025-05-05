@@ -152,28 +152,6 @@ local plugins = {
 		end,
 	},
 	{
-		"saghen/blink.cmp",
-		-- optional: provides snippets for the snippet source
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-			"xzbdmw/colorful-menu.nvim",
-		},
-
-		-- use a release tag to download pre-built binaries
-		version = "1.*",
-		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-		-- build = 'cargo build --release',
-		-- If you use nix, you can build from source using latest nightly rust with:
-		-- build = 'nix run .#build-plugin',
-
-		---@module 'blink.cmp'
-		---@type blink.cmp.Config
-		opts = function()
-			return require("configs.blink")
-		end,
-		opts_extend = { "sources.default" },
-	},
-	{
 		"kylechui/nvim-surround",
 		version = "^3.0.0",
 		event = "VeryLazy",
@@ -181,6 +159,43 @@ local plugins = {
 			require("nvim-surround").setup({})
 		end,
 	},
+	{
+		"obsidian-nvim/obsidian.nvim",
+		version = "*",
+		lazy = true,
+		ft = "markdown",
+		dependencies = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+		},
+		---@module 'obsidian'
+		---@type obsidian.config.ClientOpts
+		opts = function()
+			return require("configs.obsidian")
+		end,
+	},
+  {
+    "saghen/blink.cmp",
+    -- optional: provides snippets for the snippet source
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      "xzbdmw/colorful-menu.nvim",
+    },
+
+    -- use a release tag to download pre-built binaries
+    version = "1.*",
+    -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+    -- build = 'cargo build --release',
+    -- If you use nix, you can build from source using latest nightly rust with:
+    -- build = 'nix run .#build-plugin',
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = function()
+      return require("configs.blink")
+    end,
+    opts_extend = { "sources.default" },
+  },
 }
 
 return plugins
