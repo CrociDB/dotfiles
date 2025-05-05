@@ -2,7 +2,7 @@ local M = {
 	workspaces = {
 		{
 			name = "notes",
-			path = "~/Projects/Notes/",
+			path = "~/Projects/notes/",
 		},
 		{
 			name = "devnotes",
