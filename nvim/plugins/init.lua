@@ -147,9 +147,9 @@ local plugins = {
 	},
 	{
 		"xzbdmw/colorful-menu.nvim",
-    config = function()
-      require("configs.colorful-menu")
-    end
+		config = function()
+			require("configs.colorful-menu")
+		end,
 	},
 	{
 		"saghen/blink.cmp",
@@ -172,6 +172,14 @@ local plugins = {
 			return require("configs.blink")
 		end,
 		opts_extend = { "sources.default" },
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "^3.0.0",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
 	},
 }
 
