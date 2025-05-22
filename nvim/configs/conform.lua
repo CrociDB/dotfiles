@@ -12,6 +12,7 @@ local options = {
 		cpp = { "clang-format" },
 		ino = { "clang-format" },
 		gdscript = { "gdformat" },
+    rust = {"rustfmt"},
 	},
 
 	-- format_on_save = {
