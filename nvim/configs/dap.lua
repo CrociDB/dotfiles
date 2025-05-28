@@ -30,7 +30,7 @@ vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
 -- ADAPTERS
 dap.adapters.lldb = {
   type = "executable",
-  command = "/usr/bin/lldb-dap",
+  command = "/opt/llvm/bin/lldb-dap",
   name = "lldb"
 }
 

@@ -23,6 +23,11 @@ local plugins = {
 		end,
 	},
 	{
+		"mrcjkb/rustaceanvim",
+		version = "^6", -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
+	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		event = "VeryLazy",
 		config = function()
@@ -159,28 +164,28 @@ local plugins = {
 			return require("configs.obsidian")
 		end,
 	},
-  {
-    "saghen/blink.cmp",
-    -- optional: provides snippets for the snippet source
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-      "xzbdmw/colorful-menu.nvim",
-    },
+	{
+		"saghen/blink.cmp",
+		-- optional: provides snippets for the snippet source
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"xzbdmw/colorful-menu.nvim",
+		},
 
-    -- use a release tag to download pre-built binaries
-    version = "1.*",
-    -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-    -- build = 'cargo build --release',
-    -- If you use nix, you can build from source using latest nightly rust with:
-    -- build = 'nix run .#build-plugin',
+		-- use a release tag to download pre-built binaries
+		version = "1.*",
+		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+		-- build = 'cargo build --release',
+		-- If you use nix, you can build from source using latest nightly rust with:
+		-- build = 'nix run .#build-plugin',
 
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = function()
-      return require("configs.blink")
-    end,
-    opts_extend = { "sources.default" },
-  },
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = function()
+			return require("configs.blink")
+		end,
+		opts_extend = { "sources.default" },
+	},
 }
 
 return plugins

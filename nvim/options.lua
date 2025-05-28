@@ -10,10 +10,33 @@ vim.filetype.add({
 	},
 })
 
+vim.diagnostic.config({
+	virtual_lines = true,
+	virtual_text = false,
+	underline = true, -- Keep underlines for diagnostics
+	signs = true, -- Keep signs in the sign column
+	severity_sort = true, -- Sort diagnostics by severity
+	update_in_insert = false, -- Optionally, don't update diagnostics in insert mode
+})
+
+local bufnr = vim.api.nvim_get_current_buf()
+vim.keymap.set("n", "<leader>a", function()
+	vim.cmd.RustLsp("codeAction")
+end, { silent = true, buffer = bufnr })
+
+-- vim.keymap.set(
+-- 	"n",
+-- 	"K", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+-- 	function()
+-- 		vim.cmd.RustLsp({ "hover", "actions" })
+-- 	end,
+-- 	{ silent = true, buffer = bufnr }
+-- )
+
 vim.opt.relativenumber = true
 
 require("cmp").setup({ enabled = false })
 
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
