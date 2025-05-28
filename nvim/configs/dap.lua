@@ -19,19 +19,22 @@ dap.listeners.before.event_exited.dapui_config = function()
 end
 
 -- KEYMAPS
-vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
+vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint)
+vim.keymap.set("n", "<Leader>db", dapui.toggle)
 vim.keymap.set("n", "<Leader>dc", dap.continue, {})
 vim.keymap.set('n', '<F5>', dap.continue)
 vim.keymap.set('n', '<F10>', dap.step_over)
 vim.keymap.set('n', '<F11>', dap.step_into)
 vim.keymap.set('n', '<F12>', dap.step_out)
-vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
 
 -- ADAPTERS
 dap.adapters.lldb = {
-  type = "executable",
-  command = "/opt/llvm/bin/lldb-dap",
-  name = "lldb"
+    type = 'server',
+    port = "${port}",
+    executable = {
+        command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+        args = { "--port", "${port}" },
+    }
 }
 
 dap.adapters.gdb = {

@@ -26,6 +26,9 @@ local plugins = {
 		"mrcjkb/rustaceanvim",
 		version = "^6", -- Recommended
 		lazy = false, -- This plugin is already lazy
+    config = function()
+      require("configs.rustacean")
+    end,
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
