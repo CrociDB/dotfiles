@@ -74,3 +74,12 @@ lspconfig.cssls.setup({
   capabilities = capabilities
 })
 
+vim.diagnostic.config({
+	virtual_lines = true,
+  virtual_text = false,
+	underline = true,
+	signs = true,
+	severity_sort = true,
+	update_in_insert = false,
+})
+
