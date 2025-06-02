@@ -7,7 +7,7 @@ local M = {
 	allow_insecure = false, -- Allow insecure server connections
 
 	system_prompt = prompts.COPILOT_INSTRUCTIONS.system_prompt,
-	model = "gpt-4o",
+	model = "gpt-4.1",
 	agent = "copilot", -- Default agent to use, see ':CopilotChatAgents' for available agents (can be specified manually in prompt via @).
 	context = nil, -- Default context or array of contexts to use (can be specified manually in prompt via #).
 	sticky = nil, -- Default sticky prompt or array of sticky prompts to use at start of every new chat.
