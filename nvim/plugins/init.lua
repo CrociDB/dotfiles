@@ -24,8 +24,8 @@ local plugins = {
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^6", -- Recommended
-		lazy = false, -- This plugin is already lazy
+		version = "^6",
+		lazy = false,
     config = function()
       require("configs.rustacean")
     end,

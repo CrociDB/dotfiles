@@ -1,17 +1,15 @@
-local bufnr = vim.api.nvim_get_current_buf()
-
-vim.keymap.set('n', '<leader>dr', "<cmd> RustLsp debuggables<CR>", { noremap = true, silent = true })
-
-vim.keymap.set("n", "<leader>a", function()
-	vim.cmd.RustLsp("codeAction")
-end, { silent = true, buffer = bufnr })
-
--- vim.keymap.set(
--- 	"n",
--- 	"K", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
--- 	function()
--- 		vim.cmd.RustLsp({ "hover", "actions" })
--- 	end,
--- 	{ silent = true, buffer = bufnr }
--- )
-
+vim.g.rustaceanvim = {
+	tools = {},
+	server = {
+		on_attach = function(client, bufnr)
+			local map = vim.keymap.set
+			map("n", "<leader>dr", "<cmd> RustLsp debuggables<CR>", { noremap = true, silent = true })
+			map("n", "<leader>ca", "<cmd> RustLsp codeAction<CR>", { noremap = true, buffer = bufnr })
+			map("n", "K", "<cmd> RustLsp hover actions<CR>", { noremap = true, silent = true, buffer = bufnr })
+		end,
+		default_settings = {
+			["rust-analyzer"] = {},
+		},
+	},
+	dap = {},
+}

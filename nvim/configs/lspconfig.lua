@@ -74,12 +74,3 @@ lspconfig.cssls.setup({
   capabilities = capabilities
 })
 
-lspconfig.rust_analyzer.setup({
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      cargo = { allFeatures = true },
-      checkOnSave = { command = "clippy" }
-    }
-  }
-})
