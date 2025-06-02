@@ -25,7 +25,7 @@ end
 
 -- Maps
 
-vim.api.nvim_del_keymap('n', "<leader>fz")
+vim.api.nvim_del_keymap("n", "<leader>fz")
 
 local map = vim.keymap.set
 
@@ -35,10 +35,10 @@ map("n", "<leader>tt", "<cmd> Telescope<CR>", { desc = "Telescope Document Symbo
 map("n", "<leader>ss", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Telescope Document Symbols" })
 map("n", "<leader>dd", "<cmd> Telescope diagnostics <CR>", { desc = "Telescope Document Symbols" })
 map(
-  "n",
-  "<leader>m",
-  "<cmd> Telescope lsp_document_symbols symbols=function,method <CR>",
-  { desc = "Telescope Document Symbols" }
+	"n",
+	"<leader>m",
+	"<cmd> Telescope lsp_document_symbols symbols=function,method <CR>",
+	{ desc = "Telescope Document Symbols" }
 )
 
 -- Motions
@@ -70,3 +70,10 @@ map("n", "<M-p>", "<cmd> CopilotChatToggle <CR>")
 map("v", "<M-p>", "<cmd> CopilotChatToggle <CR>")
 map("n", "<M-P>", "<cmd> lua CopilotChatQuickPrompt()<CR>")
 map("v", "<M-P>", "<cmd> lua CopilotChatQuickPrompt()<CR>")
+
+-- Tmux/Vim Navagations
+map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>")
+map("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>")
+map("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>")
+map("n", "<c-l>", "<cmd>TmuxNavigateRight<cr>")
+map("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>")

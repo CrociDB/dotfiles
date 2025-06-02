@@ -189,6 +189,20 @@ local plugins = {
 		end,
 		opts_extend = { "sources.default" },
 	},
+	{
+		"christoomey/vim-tmux-navigator",
+		lazy = true,
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+			"TmuxNavigatorProcessList",
+		},
+		keys = {
+		},
+	},
 }
 
 return plugins
