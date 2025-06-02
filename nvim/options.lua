@@ -11,8 +11,8 @@ vim.filetype.add({
 })
 
 vim.diagnostic.config({
+  virtual_text = false,
 	virtual_lines = true,
-	virtual_text = false,
 	underline = true, -- Keep underlines for diagnostics
 	signs = true, -- Keep signs in the sign column
 	severity_sort = true, -- Sort diagnostics by severity

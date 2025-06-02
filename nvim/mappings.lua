@@ -23,6 +23,18 @@ function CopilotChatQuickPrompt()
 	end
 end
 
+function VirtualLineToggle()
+	local current_config = vim.diagnostic.config()
+	local new_virtual_lines_state
+	if current_config.virtual_lines == nil or current_config.virtual_lines == false then
+		new_virtual_lines_state = true
+	else
+		new_virtual_lines_state = false
+	end
+	vim.diagnostic.config({ virtual_lines = new_virtual_lines_state, virtual_text = not new_virtual_lines_state })
+	vim.notify("Virtual lines " .. (new_virtual_lines_state and "enabled" or "disabled"), vim.log.levels.INFO)
+end
+
 -- Maps
 
 vim.api.nvim_del_keymap("n", "<leader>fz")
@@ -55,6 +67,7 @@ map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 
 -- LSP/Format
 map("n", "<leader>fm", "<cmd> lua require('conform').format() <CR>", { desc = "Format file with Formatter" })
+map("n", "<leader>vl", "<cmd> lua VirtualLineToggle()<CR>", { noremap = true, silent = true, desc = "Toggle virtual lines for diagnostics" })
 
 -- CodeLens
 map("n", "<leader>rr", "<cmd> LaunchTask<CR>", { desc = "Launch Task" })
