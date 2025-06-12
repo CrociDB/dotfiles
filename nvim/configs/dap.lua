@@ -1,7 +1,7 @@
 local dap, dapui = require("dap"), require("dapui")
 
-vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='', linehl ='', numhl =''})
-vim.fn.sign_define('DapStopped',{ text ='▶️', texthl ='', linehl ='', numhl =''})
+vim.fn.sign_define('DapBreakpoint',{ text ='🛑', texthl ='', linehl ='', numhl =''})
+vim.fn.sign_define('DapStopped',{ text ='➡️', texthl ='', linehl ='', numhl =''})
 
 dapui.setup()
 
@@ -23,9 +23,9 @@ vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint)
 vim.keymap.set("n", "<Leader>db", dapui.toggle)
 vim.keymap.set("n", "<Leader>dc", dap.continue, {})
 vim.keymap.set('n', '<F5>', dap.continue)
-vim.keymap.set('n', '<F10>', dap.step_over)
-vim.keymap.set('n', '<F11>', dap.step_into)
-vim.keymap.set('n', '<F12>', dap.step_out)
+vim.keymap.set('n', '<leader>do', dap.step_over)
+vim.keymap.set('n', '<leader>di', dap.step_into)
+vim.keymap.set('n', '<leader>dx', dap.step_out)
 
 -- ADAPTERS
 dap.adapters.lldb = {
