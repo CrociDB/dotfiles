@@ -68,6 +68,7 @@ map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 -- LSP/Format
 map("n", "<leader>fm", "<cmd> lua require('conform').format() <CR>", { desc = "Format file with Formatter" })
 map("n", "<leader>vl", "<cmd> lua VirtualLineToggle()<CR>", { noremap = true, silent = true, desc = "Toggle virtual lines for diagnostics" })
+map("n", "<leader>dn", "<cmd> lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true, desc = "Go to next diagnostic" })
 
 -- CodeLens
 map("n", "<leader>rr", "<cmd> LaunchTask<CR>", { desc = "Launch Task" })
