@@ -13,6 +13,7 @@ local options = {
 		ino = { "clang-format" },
 		gdscript = { "gdformat" },
     rust = { "rustfmt", lsp_format = "fallback" },
+    toml = {"pyproject-fmt"},
 	},
 
 	-- format_on_save = {
