@@ -41,7 +41,7 @@ config.keys = {
 	},
 }
 config.font_size = 12.0
-config.color_scheme = "Arthur"
+config.color_scheme = "N0tch2k"
 config.use_ime = true
 config.enable_wayland = false
 config.window_close_confirmation = "NeverPrompt"
