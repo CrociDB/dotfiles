@@ -5,13 +5,6 @@ local plugins = {
 		opts = require("configs.conform"),
 	},
 	{
-		"mfussenegger/nvim-lint",
-		event = "VeryLazy",
-		config = function()
-			require("configs.lint")
-		end,
-	},
-	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"nvim-neotest/nvim-nio",
@@ -26,9 +19,9 @@ local plugins = {
 		"mrcjkb/rustaceanvim",
 		version = "^6",
 		lazy = false,
-    config = function()
-      require("configs.rustacean")
-    end,
+		config = function()
+			require("configs.rustacean")
+		end,
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
@@ -200,8 +193,7 @@ local plugins = {
 			"TmuxNavigatePrevious",
 			"TmuxNavigatorProcessList",
 		},
-		keys = {
-		},
+		keys = {},
 	},
 }
 

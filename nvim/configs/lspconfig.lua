@@ -2,84 +2,95 @@
 require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require("lspconfig")
-local nvlsp = require "nvchad.configs.lspconfig"
+local nvlsp = require("nvchad.configs.lspconfig")
 local capabilities = require("blink.cmp").get_lsp_capabilities(nvlsp.capabilities)
 
 vim.lsp.set_log_level("debug")
 
-lspconfig.clangd.setup {
-  on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    nvlsp.on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-}
+lspconfig.clangd.setup({
+	on_attach = function(client, bufnr)
+		client.server_capabilities.signatureHelpProvider = false
+		nvlsp.on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
+})
 
 lspconfig.pyright.setup({
-  on_attach = nvlsp.on_attach,
-  capabilities = capabilities,
-  filetypes = {"python"},
+	on_attach = nvlsp.on_attach,
+	capabilities = capabilities,
+	filetypes = { "python" },
 })
 
 lspconfig.ts_ls.setup({
-  on_attach = nvlsp.on_attach,
-  capabilities = capabilities,
-  init_options = {
-    preferences = {
-      disableSuggestions = true,
-    }
-  }
+	on_attach = nvlsp.on_attach,
+	capabilities = capabilities,
+	init_options = {
+		preferences = {
+			disableSuggestions = true,
+		},
+	},
+})
+
+lspconfig.eslint.setup({
+	on_attach = function(client, bufnr)
+		nvlsp.on_attach(client, bufnr)
+		-- vim.api.nvim_create_autocmd("BufWritePre", {
+		-- 	buffer = bufnr,
+		-- 	command = "LspEslintFixAll",
+		-- })
+	end,
+
+	capabilities = capabilities,
 })
 
 lspconfig.hls.setup({
-  on_attach = nvlsp.on_attach,
-  capabilities = capabilities,
-  filetypes = { "haskell", "lhaskell", "cabal" },
+	on_attach = nvlsp.on_attach,
+	capabilities = capabilities,
+	filetypes = { "haskell", "lhaskell", "cabal" },
 })
 
 lspconfig.zls.setup({
-  on_attach = nvlsp.on_attach,
-  capabilities = capabilities,
-  filetypes = { "zig" },
+	on_attach = nvlsp.on_attach,
+	capabilities = capabilities,
+	filetypes = { "zig" },
 })
 
 lspconfig.gdscript.setup({
-  on_attach = function()
-    nvlsp.on_attach()
+	on_attach = function()
+		nvlsp.on_attach()
 
-    vim.cmd("set noexpandtab")
-    vim.cmd("set tabstop=4")
-    vim.cmd("set shiftwidth=4")
+		vim.cmd("set noexpandtab")
+		vim.cmd("set tabstop=4")
+		vim.cmd("set shiftwidth=4")
 
-    local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
-    if not vim.loop.fs_stat(pipepath) then
-      vim.fn.serverstart(pipepath)
-    end
-  end
+		local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
+		if not vim.loop.fs_stat(pipepath) then
+			vim.fn.serverstart(pipepath)
+		end
+	end,
 })
 
 lspconfig.ocamllsp.setup({
-  capabilities = capabilities
+	capabilities = capabilities,
 })
 
 lspconfig.racket_langserver.setup({
-  capabilities = capabilities
+	capabilities = capabilities,
 })
 
 lspconfig.html.setup({
-  capabilities = capabilities
+	capabilities = capabilities,
 })
 
 lspconfig.cssls.setup({
-  capabilities = capabilities
+	capabilities = capabilities,
 })
 
 vim.diagnostic.config({
 	virtual_lines = true,
-  virtual_text = false,
+	virtual_text = false,
 	underline = true,
 	signs = true,
 	severity_sort = true,
 	update_in_insert = false,
 })
-
