@@ -76,6 +76,7 @@ map("n", "<leader>rl", "<Cmd>lua vim.lsp.codelens.run()<CR>", { desc = "Run Code
 map("n", "<leader>rf", "<Cmd>lua vim.lsp.codelens.refresh()<CR>", { desc = "Refresh Code Lens" })
 
 -- Copilot
+map("n", "<M-C>", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
 map("n", "<M-M>", "<cmd> CodeCompanionActions <CR>")
 map("v", "<M-M>", "<cmd> CodeCompanionActions <CR>")
 map("n", "<M-m>", "<cmd>lua CopilotChatActions()<CR>")
