@@ -44,6 +44,7 @@ local map = vim.keymap.set
 -- Telescope
 map("n", "<leader>fz", "<cmd> Telescope live_grep<CR>", { noremap = true, silent = true })
 map("n", "<leader>tt", "<cmd> Telescope<CR>", { desc = "Telescope Document Symbols" })
+map("n", "<leader>te", "<cmd> NoiceTelescope<CR>", { desc = "Show all notifications, warnings and errors" })
 map("n", "<leader>ss", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Telescope Document Symbols" })
 map("n", "<leader>dd", "<cmd> Telescope diagnostics <CR>", { desc = "Telescope Document Symbols" })
 map(
