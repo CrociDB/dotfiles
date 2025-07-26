@@ -23,7 +23,7 @@ vim.lsp.enable("ts_ls")
 
 -- C/C++
 vim.lsp.config("clangd", {
-	cmd = { "clangd", "--stdio" },
+	cmd = { "clangd" },
 	filetypes = { "cpp", "c", "h", "hpp" },
 })
 vim.lsp.enable("clangd")
