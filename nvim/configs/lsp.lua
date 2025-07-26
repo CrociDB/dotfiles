@@ -1,11 +1,5 @@
 vim.diagnostic.config({
-	virtual_lines = true,
-	virtual_text = false,
-	underline = true,
-	signs = true,
-	severity_sort = true,
-	update_in_insert = false,
-})
+	virtual_lines = true, virtual_text = false, underline = true, signs = true, severity_sort = true, update_in_insert = false, })
 
 -- Python
 vim.lsp.config("python", {
@@ -41,3 +35,10 @@ vim.lsp.config("cssls", {
 	filetypes = { "css" },
 })
 vim.lsp.enable("cssls")
+
+-- Lua
+vim.lsp.config("lua", {
+	cmd = { "lua-language-server", "--stdio" },
+	filetypes = { "lua" },
+})
+vim.lsp.enable("lua")
