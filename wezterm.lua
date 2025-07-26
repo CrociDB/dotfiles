@@ -48,10 +48,10 @@ config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
 config.max_fps = 120
 config.window_padding = {
-	left = 8,
-	right = 8,
-	top = 8,
-	bottom = 8,
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
 }
 
 return config
