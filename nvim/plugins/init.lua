@@ -197,6 +197,4 @@ local plugins = {
 	},
 }
 
-require("configs.lsp")
-
 return plugins
