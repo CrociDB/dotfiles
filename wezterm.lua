@@ -40,7 +40,7 @@ config.keys = {
 		action = wezterm.action.CloseCurrentPane({ confirm = true }),
 	},
 }
-config.font_size = 12.0
+config.font_size = 10.0
 config.color_scheme = "N0tch2k"
 config.use_ime = true
 config.enable_wayland = false
