@@ -15,3 +15,17 @@ vim.diagnostic.config({
 	severity_sort = true,
 	update_in_insert = false,
 })
+
+local function on_list(options)
+  vim.fn.setqflist({}, " ", options)
+	-- vim.cmd.cfirst()
+	require("trouble").open({ mode = "quickfix" })
+end
+
+-- vim.lsp.buf.definition({ on_list = on_list })
+function LspReferences()
+	vim.lsp.buf.references(nil, { on_list = on_list })
+end
+
+
+vim.keymap.set("n", "grr", "<cmd> lua LspReferences() <CR>", { noremap = true, silent = true })

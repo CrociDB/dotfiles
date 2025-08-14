@@ -13,8 +13,8 @@ local defaults = {
   auto_open = false, -- auto open when there are items
   auto_preview = false, -- automatically open preview when on an item
   auto_refresh = true, -- auto refresh when open
-  auto_jump = false, -- auto jump to the item when there's only one
-  focus = false, -- Focus the window when opened
+  auto_jump = true, -- auto jump to the item when there's only one
+  focus = true, -- Focus the window when opened
   restore = true, -- restores the last location in the list when opening
   follow = true, -- Follow the current item
   indent_guides = true, -- show indent guides
@@ -201,3 +201,5 @@ local defaults = {
     },
   },
 }
+
+return defaults
