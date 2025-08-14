@@ -145,21 +145,21 @@ local plugins = {
 			require("nvim-surround").setup({})
 		end,
 	},
-	{
-		"obsidian-nvim/obsidian.nvim",
-		version = "*",
-		lazy = true,
-		ft = "markdown",
-		dependencies = {
-			-- Required.
-			"nvim-lua/plenary.nvim",
-		},
-		---@module 'obsidian'
-		---@type obsidian.config.ClientOpts
-		opts = function()
-			return require("configs.obsidian")
-		end,
-	},
+	-- {
+	-- 	"obsidian-nvim/obsidian.nvim",
+	-- 	version = "*",
+	-- 	lazy = true,
+	-- 	ft = "markdown",
+	-- 	dependencies = {
+	-- 		-- Required.
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	---@module 'obsidian'
+	-- 	---@type obsidian.config.ClientOpts
+	-- 	opts = function()
+	-- 		return require("configs.obsidian")
+	-- 	end,
+	-- },
 	{
 		"saghen/blink.cmp",
 		-- optional: provides snippets for the snippet source
