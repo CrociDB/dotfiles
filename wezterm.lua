@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 config.enable_tab_bar = false
-config.default_prog = { "ubuntu.exe" }
+config.default_prog = { "wsl.exe", "-d", "Ubuntu-24.04", "--cd", "~" }
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular", stretch = "Normal" })
 config.keys = {
 	{
@@ -40,8 +40,11 @@ config.keys = {
 		action = wezterm.action.CloseCurrentPane({ confirm = true }),
 	},
 }
-config.font_size = 10.0
-config.color_scheme = "N0tch2k"
+config.font_size = 9.0
+config.color_scheme = 'flexoki-dark'
+-- config.color_scheme = 'Woodland (base16)'
+-- config.color_scheme = 'Doom Peacock'
+-- config.color_scheme = 'Dark+'
 config.use_ime = true
 config.enable_wayland = false
 config.window_close_confirmation = "NeverPrompt"
@@ -50,7 +53,7 @@ config.max_fps = 120
 config.window_padding = {
 	left = 0,
 	right = 0,
-	top = 0,
+	top = 1,
 	bottom = 0,
 }
 
