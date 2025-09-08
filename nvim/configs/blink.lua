@@ -9,6 +9,7 @@ local M = {
 		["<Tab>"] = { "select_next", "fallback" },
 		["<S-Tab>"] = { "select_prev", "fallback" },
 		["<Enter>"] = { "accept", "fallback" },
+		["<C-e>"] = { "accept", "fallback" },
 	},
 
 	sources = {
@@ -33,7 +34,7 @@ local M = {
 		-- },
 	},
 
-	snippets = { preset = 'luasnip' },
+	snippets = { preset = "luasnip" },
 
 	signature = {
 		border = "solid",
@@ -100,7 +101,7 @@ local M = {
 								})
 							end
 
-							return icon .. ctx.icon_gap
+							return " " .. icon .. ctx.icon_gap
 						end,
 
 						highlight = function(ctx)
