@@ -38,6 +38,9 @@ local plugins = {
 		end,
 	},
 	{
+		"onsails/lspkind.nvim",
+	},
+	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {

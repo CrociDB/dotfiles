@@ -33,7 +33,7 @@ local M = {
 		-- },
 	},
 
-	snippets = { preset = "default" },
+	snippets = { preset = 'luasnip' },
 
 	signature = {
 		border = "solid",
@@ -75,8 +75,7 @@ local M = {
 			border = "solid",
 
 			draw = {
-				-- We don't need label_description now because label and label_description are aljjready
-				-- combined together in label by colorful-menu.nvim.
+				padding = { 0, 1 },
 				columns = { { "kind_icon", gap = 1 }, { "label", gap = 1 }, { "kind" } },
 				components = {
 					label = {
@@ -85,6 +84,34 @@ local M = {
 						end,
 						highlight = function(ctx)
 							return require("colorful-menu").blink_components_highlight(ctx)
+						end,
+					},
+					kind_icon = {
+						text = function(ctx)
+							local icon = ctx.kind_icon
+							if vim.tbl_contains({ "Path" }, ctx.source_name) then
+								local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+								if dev_icon then
+									icon = dev_icon
+								end
+							else
+								icon = require("lspkind").symbolic(ctx.kind, {
+									mode = "symbol",
+								})
+							end
+
+							return icon .. ctx.icon_gap
+						end,
+
+						highlight = function(ctx)
+							local hl = ctx.kind_hl
+							if vim.tbl_contains({ "Path" }, ctx.source_name) then
+								local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+								if dev_icon then
+									hl = dev_hl
+								end
+							end
+							return hl
 						end,
 					},
 				},
