@@ -33,7 +33,7 @@ local M = {
 		-- },
 	},
 
-	snippets = { preset = "default" | "luasnip" | "mini_snippets" },
+	snippets = { preset = "default" },
 
 	signature = {
 		border = "solid",
