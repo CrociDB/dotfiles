@@ -1,7 +1,7 @@
 local M = {
 	enabled = function()
 		-- return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
-    return true
+		return true
 	end,
 
 	keymap = {
@@ -12,7 +12,7 @@ local M = {
 	},
 
 	sources = {
-		default = { "lsp", "path", "snippets" },
+		default = { "lsp", "path", "snippets", "buffer" },
 		providers = {
 			snippets = {
 				should_show_items = function(ctx)
@@ -33,9 +33,10 @@ local M = {
 		-- },
 	},
 
-	snippets = { preset = "default" },
+	snippets = { preset = "default" | "luasnip" | "mini_snippets" },
 
 	signature = {
+		border = "solid",
 		enabled = false,
 		window = {
 			show_documentation = false,
@@ -71,11 +72,12 @@ local M = {
 
 		menu = {
 			auto_show = true,
+			border = "solid",
 
 			draw = {
 				-- We don't need label_description now because label and label_description are aljjready
 				-- combined together in label by colorful-menu.nvim.
-				columns = { { "kind_icon" }, { "label", gap = 1 }, { "kind" } },
+				columns = { { "kind_icon", gap = 1 }, { "label", gap = 1 }, { "kind" } },
 				components = {
 					label = {
 						text = function(ctx)
@@ -90,7 +92,13 @@ local M = {
 		},
 
 		-- Show documentation when selecting a completion item
-		documentation = { auto_show = true, auto_show_delay_ms = 500 },
+		documentation = {
+			auto_show = true,
+			auto_show_delay_ms = 400,
+			window = {
+				border = "solid",
+			},
+		},
 
 		-- Display a preview of the selected item on the current line
 		ghost_text = { enabled = true },
