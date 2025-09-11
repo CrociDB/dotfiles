@@ -2,7 +2,8 @@ local wezterm = require("wezterm")
 local config = {}
 
 config.enable_tab_bar = false
-config.default_prog = { "wsl.exe", "-d", "Ubuntu-24.04", "--cd", "~" }
+-- config.default_prog = { "wsl.exe", "-d", "Ubuntu-24.04", "--cd", "~" }
+config.default_prog = { "wsl.exe", "-d", "Ubuntu", "--cd", "~" }
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Regular", stretch = "Normal" })
 config.keys = {
 	{
@@ -41,7 +42,7 @@ config.keys = {
 	},
 }
 config.font_size = 9.0
-config.color_scheme = 'flexoki-dark'
+config.color_scheme = "flexoki-dark"
 -- config.color_scheme = 'Woodland (base16)'
 -- config.color_scheme = 'Doom Peacock'
 -- config.color_scheme = 'Dark+'
@@ -56,5 +57,20 @@ config.window_padding = {
 	top = 1,
 	bottom = 0,
 }
+
+-- config.hyperlink_rules = wezterm.default_hyperlink_rules()
+config.hyperlink_rules = {}
+config.mouse_bindings = {
+	{
+		event = { Up = { streak = 1, button = "Left" } },
+		mods = "NONE",
+		action = "OpenLinkAtMouseCursor",
+	},
+}
+
+table.insert(config.hyperlink_rules, {
+	regex = [[\b(?:https?|ftp|http)://[^\s"']+\b]],
+	format = "$0",
+})
 
 return config
