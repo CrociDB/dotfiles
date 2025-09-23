@@ -100,27 +100,21 @@ local plugins = {
 			},
 		},
 	},
-	{
-		"dasupradyumna/launch.nvim",
-		event = "VeryLazy",
-		-- add below plugins as per user requirement
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"rcarriga/nvim-notify",
-		},
-		opts = require("configs.launch"),
-	},
+	-- {
+	-- 	"dasupradyumna/launch.nvim",
+	-- 	event = "VeryLazy",
+	-- 	dependencies = {
+	-- 		"mfussenegger/nvim-dap",
+	-- 		"rcarriga/nvim-notify",
+	-- 	},
+	-- 	opts = require("configs.launch"),
+	-- },
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"rmagatti/auto-session",
 		lazy = false,
-
-		---enables autocomplete for opts
-		---@module "auto-session"
-		---@type AutoSession.Config
 		opts = {
 			suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-			-- log_level = 'debug',
 		},
 	},
 	{
@@ -165,21 +159,11 @@ local plugins = {
 	-- },
 	{
 		"saghen/blink.cmp",
-		-- optional: provides snippets for the snippet source
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"xzbdmw/colorful-menu.nvim",
 		},
-
-		-- use a release tag to download pre-built binaries
 		version = "1.*",
-		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-		-- build = 'cargo build --release',
-		-- If you use nix, you can build from source using latest nightly rust with:
-		-- build = 'nix run .#build-plugin',
-
-		---@module 'blink.cmp'
-		---@type blink.cmp.Config
 		opts = function()
 			return require("configs.blink")
 		end,
@@ -197,6 +181,22 @@ local plugins = {
 			"TmuxNavigatorProcessList",
 		},
 		keys = {},
+	},
+	{
+		"HakonHarnes/img-clip.nvim",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{ "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+		},
+	},
+	{
+		"3rd/image.nvim",
+		event = "VeryLazy",
+		build = false,
+		opts = {
+			processor = "magick_cli",
+		},
 	},
 }
 
