@@ -41,6 +41,9 @@ vim.api.nvim_del_keymap("n", "<leader>fz")
 
 local map = vim.keymap.set
 
+-- Misc
+map('v', '.', '"_d".P', { desc = "Replace selection with last insertion" })
+
 -- Telescope
 map("n", "<leader>fz", "<cmd> Telescope live_grep<CR>", { noremap = true, silent = true })
 map("n", "<leader>tt", "<cmd> Telescope<CR>", { desc = "Telescope Document Symbols" })
@@ -73,9 +76,9 @@ map("n", "<leader>vl", "<cmd> lua VirtualLineToggle()<CR>", { noremap = true, si
 map("n", "<leader>dn", "<cmd> lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true, desc = "Go to next diagnostic" })
 
 -- CodeLens
-map("n", "<leader>rr", "<cmd> LaunchTask<CR>", { desc = "Launch Task" })
-map("n", "<leader>rl", "<Cmd>lua vim.lsp.codelens.run()<CR>", { desc = "Run Code Lens" })
-map("n", "<leader>rf", "<Cmd>lua vim.lsp.codelens.refresh()<CR>", { desc = "Refresh Code Lens" })
+-- map("n", "<leader>rr", "<cmd> LaunchTask<CR>", { desc = "Launch Task" })
+-- map("n", "<leader>rl", "<Cmd>lua vim.lsp.codelens.run()<CR>", { desc = "Run Code Lens" })
+-- map("n", "<leader>rf", "<Cmd>lua vim.lsp.codelens.refresh()<CR>", { desc = "Refresh Code Lens" })
 
 -- Copilot
 map("n", "<M-C>", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
