@@ -35,6 +35,34 @@ function VirtualLineToggle()
 	vim.notify("Virtual lines " .. (new_virtual_lines_state and "enabled" or "disabled"), vim.log.levels.INFO)
 end
 
+function LiveGrepVisual()
+	local mode = vim.fn.mode()
+	if mode ~= "v" and mode ~= "V" then
+		return
+	end
+	local _, ls, cs = unpack(vim.fn.getpos("v"))
+	local _, le, ce = unpack(vim.fn.getpos("."))
+	if ls > le or (ls == le and cs > ce) then
+		ls, le = le, ls
+		cs, ce = ce, cs
+	end
+	local lines = vim.fn.getline(ls, le)
+	if #lines == 0 then
+		return
+	end
+	lines[#lines] = string.sub(lines[#lines], 1, ce)
+	lines[1] = string.sub(lines[1], cs)
+	local text = table.concat(lines, "\n")
+	text = text:gsub("\n", " ")
+	require("telescope.builtin").live_grep({ default_text = text })
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<BS>", true, false, true), "n", false)
+end
+
+function LiveGrepCurrentWord()
+  local word = vim.fn.expand("<cword>")
+  require('telescope.builtin').live_grep({ default_text = word })
+end
+
 -- Maps
 
 vim.api.nvim_del_keymap("n", "<leader>fz")
@@ -42,7 +70,9 @@ vim.api.nvim_del_keymap("n", "<leader>fz")
 local map = vim.keymap.set
 
 -- Misc
-map('v', '.', '"_d".P', { desc = "Replace selection with last insertion" })
+map("v", ".", '"_d".P', { desc = "Replace selection with last insertion" })
+map("v", "<leader>fz", "<cmd>lua LiveGrepVisual()<CR> ", { noremap = true, silent = true })
+map("n", "<leader>fw", "<cmd>lua LiveGrepCurrentWord()<CR>", { noremap = true, silent = true })
 
 -- Telescope
 map("n", "<leader>fz", "<cmd> Telescope live_grep<CR>", { noremap = true, silent = true })
@@ -68,12 +98,22 @@ map("i", "jk", "<ESC>")
 map("v", "<A-S-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 map("v", "<A-S-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
-map('n', 'bv', 'f{%V%', { noremap = true, desc = "select whole block ahead with this line" })
+map("n", "bv", "f{%V%", { noremap = true, desc = "select whole block ahead with this line" })
 
 -- LSP/Format
 map("n", "<leader>fm", "<cmd> lua require('conform').format() <CR>", { desc = "Format file with Formatter" })
-map("n", "<leader>vl", "<cmd> lua VirtualLineToggle()<CR>", { noremap = true, silent = true, desc = "Toggle virtual lines for diagnostics" })
-map("n", "<leader>dn", "<cmd> lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true, desc = "Go to next diagnostic" })
+map(
+	"n",
+	"<leader>vl",
+	"<cmd> lua VirtualLineToggle()<CR>",
+	{ noremap = true, silent = true, desc = "Toggle virtual lines for diagnostics" }
+)
+map(
+	"n",
+	"<leader>dn",
+	"<cmd> lua vim.diagnostic.goto_next()<CR>",
+	{ noremap = true, silent = true, desc = "Go to next diagnostic" }
+)
 
 -- CodeLens
 -- map("n", "<leader>rr", "<cmd> LaunchTask<CR>", { desc = "Launch Task" })
