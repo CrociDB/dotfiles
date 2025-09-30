@@ -9,6 +9,7 @@ vim.lsp.enable("pyright")
 vim.lsp.enable("gdscript")
 vim.lsp.enable("racket_langserver")
 
+-- Diagnostics
 vim.diagnostic.config({
 	virtual_lines = true,
 	virtual_text = false,
@@ -18,16 +19,14 @@ vim.diagnostic.config({
 	update_in_insert = false,
 })
 
+-- Using trouble for quickfix list when finding references
 local function on_list(options)
-  vim.fn.setqflist({}, " ", options)
-	-- vim.cmd.cfirst()
+	vim.fn.setqflist({}, " ", options)
 	require("trouble").open({ mode = "quickfix" })
 end
 
--- vim.lsp.buf.definition({ on_list = on_list })
 function LspReferences()
 	vim.lsp.buf.references(nil, { on_list = on_list })
 end
-
 
 vim.keymap.set("n", "grr", "<cmd> lua LspReferences() <CR>", { noremap = true, silent = true })
