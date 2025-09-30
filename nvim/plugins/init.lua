@@ -197,6 +197,12 @@ local plugins = {
 		build = false,
 		opts = { backend = "kitty", processor = "magick_rock" },
 	},
+	{
+		"Olical/conjure",
+		ft = { "racket", "scheme" },
+		lazy = true,
+		init = function() end,
+	},
 }
 
 return plugins
