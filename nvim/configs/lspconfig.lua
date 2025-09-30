@@ -6,6 +6,7 @@ vim.lsp.enable("clangd")
 vim.lsp.enable("html")
 vim.lsp.enable("cssls")
 vim.lsp.enable("pyright")
+vim.lsp.enable("gdscript")
 
 vim.diagnostic.config({
 	virtual_lines = true,

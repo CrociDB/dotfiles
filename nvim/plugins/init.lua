@@ -32,6 +32,7 @@ local plugins = {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		event = "VeryLazy",
 		dependencies = { "saghen/blink.cmp" },
 		config = function()
 			require("configs.lspconfig")
@@ -194,9 +195,7 @@ local plugins = {
 		"3rd/image.nvim",
 		event = "VeryLazy",
 		build = false,
-		opts = {
-			processor = "magick_cli",
-		},
+		opts = { backend = "kitty", processor = "magick_rock" },
 	},
 }
 
