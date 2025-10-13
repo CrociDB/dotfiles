@@ -37,7 +37,6 @@ local M = {
 	snippets = { preset = "luasnip" },
 
 	signature = {
-		border = "solid",
 		enabled = false,
 		window = {
 			show_documentation = false,
