@@ -195,7 +195,7 @@ local plugins = {
 		"3rd/image.nvim",
 		event = "VeryLazy",
 		build = false,
-		opts = { backend = "kitty", processor = "magick_rock" },
+		opts = { backend = "kitty", processor = "magick_cli" },
 	},
 	{
 		"Olical/conjure",
