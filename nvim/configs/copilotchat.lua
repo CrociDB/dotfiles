@@ -7,7 +7,7 @@ local M = {
 	allow_insecure = false, -- Allow insecure server connections
 
 	system_prompt = prompts.COPILOT_INSTRUCTIONS.system_prompt,
-	model = "gpt-4.1",
+	model = "gpt-5.1",
 	agent = "copilot", -- Default agent to use, see ':CopilotChatAgents' for available agents (can be specified manually in prompt via @).
 	context = nil, -- Default context or array of contexts to use (can be specified manually in prompt via #).
 	sticky = nil, -- Default sticky prompt or array of sticky prompts to use at start of every new chat.
@@ -76,8 +76,8 @@ local M = {
 
 	-- default window options
 	window = {
-		layout = "float", -- 'vertical', 'horizontal', 'float', 'replace'
-		width = 0.5, -- fractional width of parent, or absolute width in columns when > 1
+		layout = "vertical", -- 'vertical', 'horizontal', 'float', 'replace'
+		width = 0.3, -- fractional width of parent, or absolute width in columns when > 1
 		height = 0.5, -- fractional height of parent, or absolute height in rows when > 1
 		-- Options below only apply to floating windows
 		relative = "editor", -- 'editor', 'win', 'cursor', 'mouse'
