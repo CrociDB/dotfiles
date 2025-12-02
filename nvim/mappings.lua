@@ -57,15 +57,11 @@ map(
 -- map("n", "<leader>rf", "<Cmd>lua vim.lsp.codelens.refresh()<CR>", { desc = "Refresh Code Lens" })
 
 -- Copilot
-map("n", "<M-C>", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-map("n", "<M-M>", "<cmd> CodeCompanionActions <CR>")
-map("v", "<M-M>", "<cmd> CodeCompanionActions <CR>")
-map("n", "<M-m>", "<cmd>lua CopilotChatActions()<CR>")
-map("v", "<M-m>", "<cmd>lua CopilotChatActions()<CR>")
-map("n", "<M-p>", "<cmd> CopilotChatToggle <CR>")
-map("v", "<M-p>", "<cmd> CopilotChatToggle <CR>")
-map("n", "<M-P>", "<cmd> lua CopilotChatQuickPrompt()<CR>")
-map("v", "<M-P>", "<cmd> lua CopilotChatQuickPrompt()<CR>")
+map({ "n", "v" }, "<M-C>", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+map({ "n", "v" }, "<M-M>", "<cmd> CodeCompanionActions <CR>")
+map({ "n", "v" }, "<M-m>", "<cmd>lua CopilotChatActions()<CR>")
+map({ "n", "v" }, "<M-p>", "<cmd> CopilotChatToggle <CR>")
+map({ "n", "v" }, "<M-P>", "<cmd> lua CopilotChatQuickPrompt()<CR>")
 
 -- Tmux/Vim Navagations
 map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>")
