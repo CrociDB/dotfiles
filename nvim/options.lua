@@ -11,6 +11,7 @@ vim.filetype.add({
 })
 
 vim.opt.relativenumber = true
+vim.notify = require("notify")
 
 require("cmp").setup({ enabled = false })
 
