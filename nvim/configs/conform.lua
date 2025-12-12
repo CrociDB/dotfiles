@@ -12,8 +12,9 @@ local options = {
 		cpp = { "clang-format" },
 		ino = { "clang-format" },
 		gdscript = { "gdformat" },
-    rust = { "rustfmt", lsp_format = "fallback" },
-    toml = {"pyproject-fmt"},
+		rust = { "rustfmt", lsp_format = "fallback" },
+		toml = { "pyproject-fmt" },
+		python = { "isort", "black" },
 	},
 
 	-- format_on_save = {
