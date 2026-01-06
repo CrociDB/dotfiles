@@ -13,8 +13,9 @@ local options = {
 		ino = { "clang-format" },
 		gdscript = { "gdformat" },
 		rust = { "rustfmt", lsp_format = "fallback" },
-		toml = { "pyproject-fmt" },
 		python = { "isort", "black" },
+    toml = {"pyproject-fmt"},
+    racket = {"racket-langserver"},
 	},
 
 	-- format_on_save = {
