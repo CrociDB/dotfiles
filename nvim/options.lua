@@ -5,12 +5,13 @@ vim.cmd([[
 ]])
 
 vim.filetype.add({
-	extension = {
-		ino = "c",
-	},
+  extension = {
+    ino = "c",
+    vert = "glsl",
+    frag = "glsl",
+  },
 })
 
-vim.opt.relativenumber = true
 vim.notify = require("notify")
 
 require("cmp").setup({ enabled = false })
