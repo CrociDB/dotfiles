@@ -9,6 +9,7 @@ vim.g.maplocalleader = ","
 map("v", ".", '"_d".P', { desc = "Replace selection with last insertion" })
 map("v", "<leader>fz", "<cmd>lua LiveGrepVisual()<CR> ", { noremap = true, silent = true })
 map("n", "<leader>fw", "<cmd>lua LiveGrepCurrentWord()<CR>", { noremap = true, silent = true })
+map("n", "<leader>tx", ":tabclose<CR>", { noremap = true, silent = true })
 
 -- Telescope
 map("n", "<leader>fz", "<cmd> Telescope live_grep<CR>", { noremap = true, silent = true })
@@ -50,6 +51,9 @@ map(
 	"<cmd> lua vim.diagnostic.goto_next()<CR>",
 	{ noremap = true, silent = true, desc = "Go to next diagnostic" }
 )
+
+-- Git Stuff
+map("n", "<leader>df", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 
 -- CodeLens
 -- map("n", "<leader>rr", "<cmd> LaunchTask<CR>", { desc = "Launch Task" })

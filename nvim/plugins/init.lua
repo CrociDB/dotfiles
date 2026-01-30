@@ -203,6 +203,10 @@ local plugins = {
 		lazy = true,
 		init = function() end,
 	},
+	{
+		"sindrets/diffview.nvim",
+		event = "VeryLazy",
+	},
 }
 
 return plugins
