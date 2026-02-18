@@ -62,8 +62,6 @@ map("n", "<leader>df", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 
 -- Copilot
 map({ "n", "v" }, "<M-C>", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-map({ "n", "v" }, "<M-M>", "<cmd> CodeCompanionActions <CR>")
-map({ "n", "v" }, "<M-m>", "<cmd>lua CopilotChatActions()<CR>")
 map({ "n", "v" }, "<M-p>", "<cmd> CopilotChatToggle <CR>")
 map({ "n", "v" }, "<M-P>", "<cmd> lua CopilotChatQuickPrompt()<CR>")
 

@@ -101,15 +101,6 @@ local plugins = {
 			},
 		},
 	},
-	-- {
-	-- 	"dasupradyumna/launch.nvim",
-	-- 	event = "VeryLazy",
-	-- 	dependencies = {
-	-- 		"mfussenegger/nvim-dap",
-	-- 		"rcarriga/nvim-notify",
-	-- 	},
-	-- 	opts = require("configs.launch"),
-	-- },
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"rmagatti/auto-session",
@@ -117,17 +108,6 @@ local plugins = {
 		opts = {
 			suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
 		},
-	},
-	{
-		"olimorris/codecompanion.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = function()
-			require("configs.codecompanion")
-		end,
 	},
 	{
 		"xzbdmw/colorful-menu.nvim",
@@ -206,6 +186,14 @@ local plugins = {
 	{
 		"sindrets/diffview.nvim",
 		event = "VeryLazy",
+	},
+	{
+		"nickjvandyke/opencode.nvim",
+		version = "*", -- Latest stable release
+		event = "VeryLazy",
+		config = function()
+			require("configs.opencodenvim")
+		end,
 	},
 }
 
