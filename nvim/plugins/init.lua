@@ -163,20 +163,20 @@ local plugins = {
 		},
 		keys = {},
 	},
-	{
-		"HakonHarnes/img-clip.nvim",
-		event = "VeryLazy",
-		opts = {},
-		keys = {
-			{ "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
-		},
-	},
-	{
-		"3rd/image.nvim",
-		event = "VeryLazy",
-		build = false,
-		opts = { backend = "kitty", processor = "magick_cli" },
-	},
+	-- {
+	-- 	"HakonHarnes/img-clip.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {},
+	-- 	keys = {
+	-- 		{ "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+	-- 	},
+	-- },
+	-- {
+	-- 	"3rd/image.nvim",
+	-- 	event = "VeryLazy",
+	-- 	build = false,
+	-- 	opts = { backend = "kitty", processor = "magick_cli" },
+	-- },
 	{
 		"Olical/conjure",
 		ft = { "racket", "scheme" },
