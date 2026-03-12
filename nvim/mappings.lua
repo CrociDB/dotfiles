@@ -54,6 +54,7 @@ map(
 
 -- Git Stuff
 map("n", "<leader>df", ":DiffviewOpen<CR>", { noremap = true, silent = true })
+map("n", "<leader>dF", "<cmd> lua OpenDiffviewWithCommits()<CR>", { noremap = true, silent = true })
 
 -- CodeLens
 -- map("n", "<leader>rr", "<cmd> LaunchTask<CR>", { desc = "Launch Task" })
@@ -134,4 +135,18 @@ end
 function LiveGrepCurrentWord()
   local word = vim.fn.expand("<cword>")
   require('telescope.builtin').live_grep({ default_text = word })
+end
+
+function OpenDiffviewWithCommits()
+  vim.ui.input({ prompt = "How many commits do you want to view diff? " }, function(input)
+    if not input or input == "" then
+      return
+    end
+    local n = tonumber(input)
+    if not n or n < 1 then
+      vim.notify("Invalid number: " .. input, vim.log.levels.ERROR)
+      return
+    end
+    vim.cmd("DiffviewOpen HEAD~" .. n)
+  end)
 end
