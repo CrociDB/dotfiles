@@ -22,7 +22,7 @@ local opts = {
 	acp_providers = {
 		["opencode"] = {
 			command = "opencode",
-			args = { "acp", "-m", "opencode-go/mimo-v2.5-pro" },
+			args = { "acp" },
 			env = {
 				OPENCODE_API_KEY = os.getenv("OPENCODE_API_KEY"),
 			},
