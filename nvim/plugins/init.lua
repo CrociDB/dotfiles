@@ -158,10 +158,38 @@ local plugins = {
 	-- 	opts = { backend = "kitty", processor = "magick_cli" },
 	-- },
 	{
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		opts = require("configs.snacks"),
+		keys = {
+			{
+				"<leader>gg",
+				function()
+					Snacks.lazygit.open()
+				end,
+				desc = "Open LazyGit (Snacks)",
+			},
+			{
+				"<leader>pr",
+				function()
+					Snacks.picker.gh_pr()
+				end,
+				desc = "Open GitHub Pull Requests",
+			},
+		},
+	},
+	{
 		"Olical/conjure",
 		ft = { "racket", "scheme" },
 		lazy = true,
 		init = function() end,
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
 	},
 	{
 		"sindrets/diffview.nvim",

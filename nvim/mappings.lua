@@ -59,11 +59,6 @@ map(
 map("n", "<leader>df", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 map("n", "<leader>dF", "<cmd> lua OpenDiffviewWithCommits()<CR>", { noremap = true, silent = true })
 
--- CodeLens
--- map("n", "<leader>rr", "<cmd> LaunchTask<CR>", { desc = "Launch Task" })
--- map("n", "<leader>rl", "<Cmd>lua vim.lsp.codelens.run()<CR>", { desc = "Run Code Lens" })
--- map("n", "<leader>rf", "<Cmd>lua vim.lsp.codelens.refresh()<CR>", { desc = "Refresh Code Lens" })
-
 -- Tmux/Vim Navagations
 map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>")
 map("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>")
