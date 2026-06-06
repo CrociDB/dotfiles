@@ -8,3 +8,4 @@
     ~/.config/ghostty/ghostty: ghostty/ghostty.conf
     ~/.config/doom: doom-emacs
     ~/.config/nvim/lua: nvim
+    ~/.config/foot/foot.ini: foot/foot.ini
