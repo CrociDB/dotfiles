@@ -5,7 +5,8 @@
 
 - link:
     ~/.tmux.conf: tmux/tmux.conf
-    ~/.config/ghostty/ghostty: ghostty/ghostty.conf
+    ~/.config/ghostty/config: ghostty/config
+    ~/.config/ghostty/shaders: ghostty/shaders
     ~/.config/doom: doom-emacs
     ~/.config/nvim/lua: nvim
     ~/.config/foot/foot.ini: foot/foot.ini
