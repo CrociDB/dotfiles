@@ -55,5 +55,7 @@
 
 (package! wakatime-mode)
 
+(package! elpher)
+
 (package! opencode
   :recipe (:host codeberg :repo "sczi/opencode.el"))
