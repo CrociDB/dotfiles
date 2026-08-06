@@ -17,7 +17,7 @@ M.ui = {
 }
 
 M.base46 = {
-	theme = "everblush",
+	theme = "tomorrow_night",
 	-- transparency = true,
 
 	-- hl_override = {
