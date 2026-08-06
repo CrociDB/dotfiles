@@ -12,6 +12,15 @@ vim.filetype.add({
   },
 })
 
+if vim.g.nvim_mode == "org" then
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+      vim.opt_local.conceallevel = 2
+    end,
+  })
+end
+
 vim.notify = require("notify")
 
 require("cmp").setup({ enabled = false })
