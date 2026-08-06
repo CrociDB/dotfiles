@@ -1,15 +1,16 @@
--- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-vim.lsp.enable("ts_ls")
-vim.lsp.enable("clangd")
-vim.lsp.enable("html")
-vim.lsp.enable("cssls")
-vim.lsp.enable("ty")
-vim.lsp.enable("gdscript")
-vim.lsp.enable("fennel_ls")
-vim.lsp.enable("racket_langserver")
-vim.lsp.enable("glsl_analyzer")
+if vim.g.nvim_mode == "dev" then
+  vim.lsp.enable("ts_ls")
+  vim.lsp.enable("clangd")
+  vim.lsp.enable("html")
+  vim.lsp.enable("cssls")
+  vim.lsp.enable("ty")
+  vim.lsp.enable("gdscript")
+  vim.lsp.enable("fennel_ls")
+  vim.lsp.enable("racket_langserver")
+  vim.lsp.enable("glsl_analyzer")
+end
 
 vim.lsp.config("harper_ls", {
 	filetypes = { "markdown", "text" },

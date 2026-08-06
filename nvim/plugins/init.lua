@@ -1,4 +1,4 @@
-local plugins = {
+local dev = {
 	{
 		"stevearc/conform.nvim",
 		-- event = 'BufWritePre', -- uncomment for format on save
@@ -39,27 +39,6 @@ local plugins = {
 		end,
 	},
 	{
-		"onsails/lspkind.nvim",
-	},
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
-		},
-		config = function()
-			require("configs.noice")
-		end,
-	},
-	{
 		"folke/trouble.nvim",
 		opts = require("configs.trouble"),
 		cmd = "Trouble",
@@ -82,67 +61,6 @@ local plugins = {
 		},
 	},
 	{ "wakatime/vim-wakatime", lazy = false },
-	{
-		"rmagatti/auto-session",
-		lazy = false,
-		opts = {
-			suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-		},
-	},
-	{
-		"xzbdmw/colorful-menu.nvim",
-		config = function()
-			require("configs.colorful-menu")
-		end,
-	},
-	{
-		"kylechui/nvim-surround",
-		version = "^3.0.0",
-		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup({})
-		end,
-	},
-	-- {
-	-- 	"obsidian-nvim/obsidian.nvim",
-	-- 	version = "*",
-	-- 	lazy = true,
-	-- 	ft = "markdown",
-	-- 	dependencies = {
-	-- 		-- Required.
-	-- 		"nvim-lua/plenary.nvim",
-	-- 	},
-	-- 	---@module 'obsidian'
-	-- 	---@type obsidian.config.ClientOpts
-	-- 	opts = function()
-	-- 		return require("configs.obsidian")
-	-- 	end,
-	-- },
-	{
-		"saghen/blink.cmp",
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-			"xzbdmw/colorful-menu.nvim",
-		},
-		version = "1.*",
-		opts = function()
-			return require("configs.blink")
-		end,
-		opts_extend = { "sources.default" },
-	},
-	{
-		"christoomey/vim-tmux-navigator",
-		lazy = true,
-		cmd = {
-			"TmuxNavigateLeft",
-			"TmuxNavigateDown",
-			"TmuxNavigateUp",
-			"TmuxNavigateRight",
-			"TmuxNavigatePrevious",
-			"TmuxNavigatorProcessList",
-		},
-		keys = {},
-	},
 	-- {
 	-- 	"HakonHarnes/img-clip.nvim",
 	-- 	event = "VeryLazy",
@@ -158,38 +76,10 @@ local plugins = {
 	-- 	opts = { backend = "kitty", processor = "magick_cli" },
 	-- },
 	{
-		"folke/snacks.nvim",
-		priority = 1000,
-		lazy = false,
-		opts = require("configs.snacks"),
-		keys = {
-			{
-				"<leader>gg",
-				function()
-					Snacks.lazygit.open()
-				end,
-				desc = "Open LazyGit (Snacks)",
-			},
-			{
-				"<leader>pr",
-				function()
-					Snacks.picker.gh_pr()
-				end,
-				desc = "Open GitHub Pull Requests",
-			},
-		},
-	},
-	{
 		"Olical/conjure",
 		ft = { "racket", "scheme" },
 		lazy = true,
 		init = function() end,
-	},
-	{
-		"folke/flash.nvim",
-		event = "VeryLazy",
-		---@type Flash.Config
-		opts = {},
 	},
 	{
 		"sindrets/diffview.nvim",
@@ -242,5 +132,123 @@ local plugins = {
 		},
 	},
 }
+
+local base = {
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+		config = function()
+			require("configs.noice")
+		end,
+	},
+	{
+		"rmagatti/auto-session",
+		lazy = false,
+		opts = {
+			suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+		},
+	},
+	{
+		"xzbdmw/colorful-menu.nvim",
+		config = function()
+			require("configs.colorful-menu")
+		end,
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "^3.0.0",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
+	{
+		"onsails/lspkind.nvim",
+	},
+	{
+		"saghen/blink.cmp",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"xzbdmw/colorful-menu.nvim",
+		},
+		version = "1.*",
+		opts = function()
+			return require("configs.blink")
+		end,
+		opts_extend = { "sources.default" },
+	},
+	{
+		"christoomey/vim-tmux-navigator",
+		lazy = true,
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+			"TmuxNavigatorProcessList",
+		},
+		keys = {},
+	},
+	{
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		opts = require("configs.snacks"),
+		keys = {
+			{
+				"<leader>gg",
+				function()
+					Snacks.lazygit.open()
+				end,
+				desc = "Open LazyGit (Snacks)",
+			},
+			{
+				"<leader>pr",
+				function()
+					Snacks.picker.gh_pr()
+				end,
+				desc = "Open GitHub Pull Requests",
+			},
+		},
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+	},
+}
+
+local org = {
+	{
+		"obsidian-nvim/obsidian.nvim",
+		version = "*",
+		ft = "markdown",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		---@module "obsidian"
+		---@type obsidian.config
+		opts = function()
+			return require("configs.obsidian")
+		end,
+	},
+}
+
+local mode = vim.env.NVIM_MODE
+if mode ~= "org" then
+	mode = "dev"
+end
+
+vim.g.nvim_mode = mode
+
+local plugins = vim.list_extend({}, base)
+vim.list_extend(plugins, mode == "org" and org or dev)
 
 return plugins

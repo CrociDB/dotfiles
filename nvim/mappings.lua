@@ -7,8 +7,10 @@ vim.opt.clipboard = "unnamedplus"
 
 -- Misc
 map("v", ".", '"_d".P', { desc = "Replace selection with last insertion" })
-map("v", "<leader>fz", "<cmd>lua LiveGrepVisual()<CR> ", { noremap = true, silent = true })
-map("n", "<leader>fw", "<cmd>lua LiveGrepCurrentWord()<CR>", { noremap = true, silent = true })
+if vim.g.nvim_mode == "dev" then
+  map("v", "<leader>fz", "<cmd>lua LiveGrepVisual()<CR> ", { noremap = true, silent = true })
+  map("n", "<leader>fw", "<cmd>lua LiveGrepCurrentWord()<CR>", { noremap = true, silent = true })
+end
 
 map("n", "<leader>tx", ":tabclose<CR>", { noremap = true, silent = true })
 map("n", "<leader>tn", ":tabnext<CR>", { noremap = true, silent = true })
@@ -28,6 +30,11 @@ map(
 	{ desc = "Telescope Document Symbols" }
 )
 
+if vim.g.nvim_mode == "org" then
+  map("n", "<leader>ff", "<cmd> Obsidian quick_switch<CR>", { noremap = true, silent = true })
+  map("n", "<leader>fz", "<cmd> Obsidian search<CR>", { noremap = true, silent = true })
+end
+
 -- Motions
 map("v", "//", [[y/\V<C-R>=escape(@", '/\')<CR><CR>]], { noremap = true, silent = true })
 map("n", "//", [[:let @/='\V' . escape(expand('<cword>'), '/\')<CR>n]], { noremap = true, silent = true })
@@ -41,7 +48,9 @@ map("i", "<C-BS>", "<C-w>", { noremap = true, silent = true })
 map("n", "<leader>bv", "f{%V%", { noremap = true, desc = "select whole block ahead with this line" })
 
 -- LSP/Format
-map("n", "<leader>fm", "<cmd> lua require('conform').format() <CR>", { desc = "Format file with Formatter" })
+if vim.g.nvim_mode == "dev" then
+  map("n", "<leader>fm", "<cmd> lua require('conform').format() <CR>", { desc = "Format file with Formatter" })
+end
 map(
 	"n",
 	"<leader>vl",
