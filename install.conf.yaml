@@ -10,3 +10,6 @@
     ~/.config/doom: doom-emacs
     ~/.config/nvim/lua: nvim
     ~/.config/foot/foot.ini: foot/foot.ini
+
+- shell:
+    - sudo ln -sf $HOME/.dotfiles/keyboards/keyd.conf /etc/keyd/default.conf && sudo keyd reload
